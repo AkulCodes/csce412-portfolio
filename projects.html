@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects — Akul Ranjan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a08; --bg2: #111110; --surface: #1a1a17;
+      --border: #2a2a25; --accent: #c8a96e; --accent2: #8fba74;
+      --text: #e8e4d8; --muted: #7a7668;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --mono: 'DM Mono', monospace;
+    }
+    body { background: var(--bg); color: var(--text); font-family: var(--mono); font-weight: 300; font-size: 14px; line-height: 1.7; }
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 9999; opacity: 0.4;
+    }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.5rem 4rem;
+      background: rgba(10,10,8,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; color: var(--accent); text-decoration: none; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+    .page-hero { padding: 10rem 4rem 4rem; max-width: 1200px; margin: 0 auto; }
+    .page-tag { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    .page-title { font-family: var(--serif); font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 300; }
+    .page-title em { font-style: italic; color: var(--accent); }
+    .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--muted); text-decoration: none; font-size: 12px; letter-spacing: 0.08em; margin-bottom: 2rem; transition: color 0.2s; }
+    .back-link:hover { color: var(--accent); }
+    .projects-full { padding: 2rem 4rem 6rem; max-width: 1200px; margin: 0 auto; display: grid; gap: 2rem; }
+    .project-full-card {
+      padding: 3rem; border: 1px solid var(--border); background: var(--surface);
+      display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; align-items: start;
+      transition: border-color 0.25s;
+    }
+    .project-full-card:hover { border-color: rgba(200,169,110,0.4); }
+    .project-full-left .proj-num { font-size: 3rem; font-family: var(--serif); font-weight: 300; color: var(--border); line-height: 1; margin-bottom: 0.5rem; }
+    .project-full-left .proj-status { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.8rem; border: 1px solid var(--accent2); color: var(--accent2); display: inline-block; }
+    .project-full-right h3 { font-family: var(--serif); font-size: 1.8rem; font-weight: 400; color: var(--text); margin-bottom: 1rem; }
+    .project-full-right p { color: var(--muted); font-size: 13px; line-height: 1.85; margin-bottom: 1.5rem; }
+    .project-tech { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .project-tech span { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); border: 1px solid rgba(200,169,110,0.25); padding: 0.25rem 0.7rem; }
+    footer { border-top: 1px solid var(--border); padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 11px; letter-spacing: 0.08em; }
+    .footer-domain { color: var(--accent); }
+    @media (max-width: 768px) {
+      nav { padding: 1.2rem 2rem; }
+      .page-hero, .projects-full { padding-left: 2rem; padding-right: 2rem; }
+      .project-full-card { grid-template-columns: 1fr; gap: 1.5rem; padding: 2rem; }
+      footer { padding: 1.5rem 2rem; flex-direction: column; gap: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">AR</a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#skills">Skills</a></li>
+    <li><a href="projects.html" class="active">Projects</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <a class="back-link" href="index.html">← Back to Home</a>
+  <div class="page-tag">Portfolio</div>
+  <h1 class="page-title">My <em>Projects</em></h1>
+</div>
+
+<div class="projects-full">
+  <div class="project-full-card">
+    <div class="project-full-left">
+      <div class="proj-num">01</div>
+      <span class="proj-status">Live</span>
+    </div>
+    <div class="project-full-right">
+      <h3>Cloud Portfolio Website</h3>
+      <p>This very website — a static personal portfolio deployed on AWS S3, served securely through CloudFront CDN with an SSL/TLS certificate provisioned by AWS Certificate Manager. DNS is managed via Amazon Route 53, mapping the custom domain to the CloudFront distribution. HTTP traffic is automatically redirected to HTTPS.</p>
+      <div class="project-tech">
+        <span>AWS S3</span><span>CloudFront</span><span>Route 53</span><span>ACM</span><span>HTML/CSS</span><span>JavaScript</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-full-card">
+    <div class="project-full-left">
+      <div class="proj-num">02</div>
+      <span class="proj-status">Complete</span>
+    </div>
+    <div class="project-full-right">
+      <h3>Full-Stack Web Application</h3>
+      <p>A full-stack web application featuring user authentication, dynamic content rendering, and a RESTful backend API. The frontend is built with React and communicates with a Node.js/Express server backed by a relational database.</p>
+      <div class="project-tech">
+        <span>React</span><span>Node.js</span><span>Express</span><span>PostgreSQL</span><span>REST API</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-full-card">
+    <div class="project-full-left">
+      <div class="proj-num">03</div>
+      <span class="proj-status">Complete</span>
+    </div>
+    <div class="project-full-right">
+      <h3>Systems Programming Project</h3>
+      <p>Low-level systems programming in C++ exploring memory management, multi-threading, and process synchronization. Implemented a custom thread pool scheduler and a memory allocator as part of coursework.</p>
+      <div class="project-tech">
+        <span>C++</span><span>Linux</span><span>POSIX Threads</span><span>Bash</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-full-card">
+    <div class="project-full-left">
+      <div class="proj-num">04</div>
+      <span class="proj-status">Complete</span>
+    </div>
+    <div class="project-full-right">
+      <h3>Data Analysis Pipeline</h3>
+      <p>An automated ETL pipeline for ingesting, cleaning, and analyzing large datasets. Built with Python using Pandas and SQLAlchemy, with visualization outputs generated via Matplotlib. Scheduled via cron jobs on a Linux server.</p>
+      <div class="project-tech">
+        <span>Python</span><span>Pandas</span><span>SQL</span><span>Matplotlib</span><span>Linux</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span>© 2025 Akul Ranjan</span>
+  <span class="footer-domain">csce412akulranjan1.me</span>
+  <span>Texas A&M University</span>
+</footer>
+</body>
+</html>
